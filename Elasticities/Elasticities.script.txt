@@ -1,0 +1,63 @@
+So we will be discussing price elasticities.
+
+Let's open code4.R
+We will load data2.csv
+Here we have the sales in units, in terms of
+our price and quantities
+As we have seen, we want to model the sales of a product in terms of a price
+and a competitor price.
+We have seen that if we just do that, the interpretation of each coefficient
+would be a little weird: "if our own product price decreases by one dollar, then the
+sales would increase certain amount of units"
+When dealing with prices and quantities, we expect a nonlinear effect. Don't be
+confused, even though we are modelling linear models we can incorporate such an effect
+(by using a trick)
+Why? Because a $1 change should have a high impact on your sales when the price
+is low, and low impact when the price is high.
+This is the key part. Economists call this
+"price elasticities". They are defined as
+the " percetanje change of the quantity
+when the prices change by 1%"
+
+To explain this we need to use some basic calculus, so you can ignore this explanation
+in case you find it difficult.
+
+I will write it here. This is the model we are using
+
+
+
+And this is the interpretation we were previously
+using. Now let's assume we have a different model
+
+
+
+If we just get the derivative, using the chain rule
+
+
+we would have this. Multiplying by price on 
+both sides.
+
+
+And this is the definition of elasticity. We can do the exact same thing for the
+price_competitor variable.
+
+There are two alternative models that are not very used in the industry nor academia:
+the first one is when ONLY the independent variable is in logs, and the second
+one when the dependent variable is in logs. Those are called "semi-elasticities" models.
+
+Now, going back to our example, we need to transform our data
+
+Once the data is transformed, we can redo our model
+
+And the interpretation is the following:
+
+"a 1% increase in our price, changes -0.37% our sales"
+
+
+Two final comments, or one final comment
+the model in logs can have 
+coefficients very different from the model without logs
+
+
+
+

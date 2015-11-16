@@ -1,0 +1,60 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:01.140 --> 00:00:07.490
+So we will be using R? Why R? Basically its
+because its the best statistical software
+
+00:00:07.490 --> 00:00:14.040
+out there. It's free, it's open source, and
+it's incredible powerful and easy to use.
+
+00:00:14.040 --> 00:00:20.999
+Over the past 5 to 7 years, practically all
+the companies in the industry have transitioned
+
+00:00:20.999 --> 00:00:28.820
+into R. And also in the academical world,
+most researches are using R. Right now, its
+
+00:00:28.820 --> 00:00:36.579
+very hard to find a statistics paper that
+was published not using R. One of the great
+
+00:00:36.579 --> 00:00:41.960
+things that R has is that it allows to create
+new packages, so every single day a lot of
+
+00:00:41.960 --> 00:00:46.730
+people from around the world will be uploading
+new packages and new functions. So you will
+
+00:00:46.730 --> 00:00:56.059
+always feel that you are using the latest
+techniques and software out there. Apart from
+
+00:00:56.059 --> 00:01:03.399
+this great thing (that it allows you to install
+new things) R is a very powerful plotting
+
+00:01:03.399 --> 00:01:11.860
+tool. It allows you to create very powerful
+charts. To be honest, I think that the greatest
+
+00:01:11.860 --> 00:01:18.000
+drawback that R has, is that it is a rather
+limited tool for data processing. What happens
+
+00:01:18.000 --> 00:01:26.259
+a lot in the industry is that you will need
+to pre-process your data a lot before modelling.
+
+00:01:26.259 --> 00:01:31.939
+So because R is not the greatest tool out
+there for data processing, you will always
+
+00:01:31.939 --> 00:01:35.869
+feel that you need to do some things in Excel
+before actually modelling
+

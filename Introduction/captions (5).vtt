@@ -1,0 +1,222 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:01.569 --> 00:00:07.279
+Linear regression is the most important tool in statistics, data-science, and machine larning.
+
+00:00:07.279 --> 00:00:12.440
+Every possible book in these topics has lots
+of sections about this, and every data-science
+
+00:00:12.440 --> 00:00:17.140
+team in the world is working with it. The
+idea is to fit a dependent variable in terms
+
+00:00:17.140 --> 00:00:22.539
+of a set of explanatory variables. The method
+will need that the model is linear in its
+
+00:00:22.539 --> 00:00:28.279
+parameters, so you can imagine how many possible
+situations fit into this framework. A very
+
+00:00:28.279 --> 00:00:33.050
+powerful thing about linear regression is
+that the extra assumptions needed for it to
+
+00:00:33.050 --> 00:00:39.690
+work, will be quite simple to check. One example of linear regression
+could be this one:
+
+00:00:39.690 --> 00:00:46.690
+here we have a scatterplot between x and y;
+it is a plot showing all the pairs of values.
+
+00:00:46.690 --> 00:00:50.210
+We want to explain y en terms of x.
+So, in particular we might be willing to estimate this model
+
+00:00:50.210 --> 00:00:50.670
+We want to explain y en terms of x.
+So, in particular we might be willing to estimate this model
+
+00:00:50.670 --> 00:01:04.300
+Here we would like to estimate this b coefficient, we would like to build inferences on it, and we would actually
+
+00:01:04.300 --> 00:01:07.110
+be wanting to build predictions out of this model
+
+00:01:07.110 --> 00:01:11.390
+be wanting to build predictions out of this model
+
+00:01:11.390 --> 00:01:18.369
+In general I will use datasets and variables
+related to online analytics, prices and sales,
+
+00:01:18.369 --> 00:01:23.500
+ecommerce, etc. I want you to see what are
+the typical problems that a data scientist
+
+00:01:23.500 --> 00:01:29.939
+works on. We will use R because it is the
+main tool in the industry and is totally free
+
+00:01:29.939 --> 00:01:32.340
+and open source.
+
+00:01:32.340 --> 00:01:40.420
+So, in this course we will studying linear
+regression, particularly in R. Although we will quickly
+
+00:01:40.420 --> 00:01:45.799
+review what are the basic mathematics behind
+linear regression, the focus will be on the
+
+00:01:45.799 --> 00:01:52.259
+actual modelling and computational part. We
+will abuse from R's incredible capability
+
+00:01:52.259 --> 00:02:10.890
+of loading packages, and we will see how these
+packages make our life so much easier. Bear in mind that I used the word abuse and not use. Every time there is a good R package for a particular thing I will use it here
+
+00:02:10.890 --> 00:02:16.300
+Our basic tool for fitting linear models will
+be Ordinary Least Squares, where the goal
+
+00:02:16.300 --> 00:02:21.360
+is to minimize the residual sum of squares.
+In order for this to work, we will need to
+
+00:02:21.360 --> 00:02:28.190
+make some assumptions. We will start by reviewing
+the basic commands, how to verify this model
+
+00:02:28.190 --> 00:02:33.900
+assumptions, and how to fix models where these
+assumptions do not work. We will review the
+
+00:02:33.900 --> 00:02:40.970
+computational side in R, and how our main
+function lm() works. This is lm
+
+00:02:40.970 --> 00:02:48.410
+We will also review some important practical
+situations such as model selection, overfitting,
+
+00:02:48.410 --> 00:02:54.060
+issues with pvalues, and hypothesis tests.
+We will see that there is a close relationship
+
+00:02:54.060 --> 00:03:00.280
+between doing ANOVA and doing ordinary least squares.
+We will also see that there is an equivalence
+
+00:03:00.280 --> 00:03:06.130
+between ordinary least squares and maximum
+likelihood. We will analyze the plots that
+
+00:03:06.130 --> 00:03:11.280
+R produces for linear regression, and we will
+study how to identify observations with high
+
+00:03:11.280 --> 00:03:15.920
+leverage or high residuals producing high
+influence on our estimates.
+
+00:03:15.920 --> 00:03:21.130
+We will then move into much more advanced
+methods, and the complexity of the course
+
+00:03:21.130 --> 00:03:27.850
+will increase sharply. We will analyze linear
+mixed effects models in R. These models arise
+
+00:03:27.850 --> 00:03:33.460
+when we have a grouping factor that we can
+treat as random - and we will end up with a model
+
+00:03:33.460 --> 00:03:42.160
+with fixed effects and random effects (thus
+the mixed effect terminology) . We won't be
+
+00:03:42.160 --> 00:03:50.400
+actually getting an estimate for our random
+effects, but a variance component that make
+
+00:03:50.400 --> 00:03:56.660
+all the observations belonging to the same
+group, correlated. We will study in detail
+
+00:03:56.660 --> 00:04:23.130
+the lmer() function 
+which belongs to the lme4 package. This will be our workhorse for
+estimating these models. We will also see
+
+00:04:23.130 --> 00:04:28.820
+how to do model selection in this framework, how to estimate
+differences in the predictions for each effect,
+
+00:04:28.820 --> 00:04:36.630
+and how to validate our model. We will see
+that mixed effects models do require a much
+
+00:04:36.630 --> 00:04:44.880
+more complex algorithmic solution (though
+lmer will do everything for us), and I will
+
+00:04:44.880 --> 00:04:51.440
+show you what lmer() is doing behind the lines.
+I will show you how to actually estimate these
+
+00:04:51.440 --> 00:05:00.010
+models optimizing the log-likelihood, and
+using Generalized Least Squares.
+
+00:05:00.010 --> 00:05:05.690
+As a general comment, we will use lots of
+datasets with many variables, and in particular
+
+00:05:05.690 --> 00:05:11.460
+I will show you how to create your own synthetic
+datasets using Monte Carlo (both in fixed
+
+00:05:11.460 --> 00:05:15.940
+effects models and in mixed effects models).
+
+00:05:15.940 --> 00:05:22.380
+I don't think that knowing R is very important
+here. Naturally, some exposure to R is beneficial,
+
+00:05:22.380 --> 00:05:27.900
+but I designed the course not to depend on
+previous R knowledge. The course has a lot
+
+00:05:27.900 --> 00:05:36.620
+of quizes, to evaluate your knowledge. And
+it also has a lot exercises with data. I share
+
+00:05:36.620 --> 00:05:41.440
+all the code in a Github repository, where
+you can download the exact same codes and
+
+00:05:41.440 --> 00:05:47.890
+data I used. I will also try to keep this
+course as updated as possible, so it is likely
+
+00:05:47.890 --> 00:05:53.550
+I will be improving many of the sections in
+the future. For example you will find that
+
+00:05:53.550 --> 00:06:01.810
+the last section of the course is currently
+on robust regression using M-estimators. Essentially,
+
+00:06:01.810 --> 00:06:07.800
+these are models whose parameters do not change
+much when we have outliers. I will most likely
+
+00:06:07.800 --> 00:06:10.970
+be adding extra sections such as this one in the future
+
